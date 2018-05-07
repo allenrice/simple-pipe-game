@@ -1,0 +1,18 @@
+﻿<div class="game" data-bind="gameBinding: $data">
+    <div class="board-table">
+        <div data-bind="foreach: board">
+            <div class="board-column" data-bind="foreach: $parent.board[$index()]">
+                <div data-bind="locationBinding: $data, dt-component: { name: 'pieceLocation-component', vm: $data }"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="clear: both;">
+        <br />
+        <input class="btn btn-default btn-md active" data-bind="pickup: 0" type="button" value="pick up 90 degree bend" /> <br /><br />
+        <input class="btn btn-default btn-md active" data-bind="pickup: 1" type="button" value="pick up 180 degree pipe" /> <br /><br />
+    </div>
+
+</div>
+
+

@@ -1,0 +1,63 @@
+﻿
+<div class="pipe-game">
+    The game is meant to be played with a head start, so pick one you like and click start before you start moving pieces<br /><br />
+    The goal of the game is to connect the pipes from start to finish <br /><br />
+    Click on pipes to rotate them<br /><br />
+    The green line is where you start - line up your start pipe before hitting start<br /><br />
+    The red line is the exit<br /><br />
+    Only use the "pick up" buttons if there are empty spaces. after clicking pick up, click the empty cell that you want it to go to<br /><br />
+
+    <input class="btn btn-default btn-md active" data-bind="click: resetAndRandomizeGame" type="button" value="generate a new random game" /><br /><br />
+
+    <input class="btn btn-default btn-md active" data-bind="click: newEmptyGame" type="button" value="generate a new empty game" /><br /><br />
+
+    <labeL>
+        Game Height
+        <select class="form-control" data-bind="options: [2,3,4,5,6,7,8,9,10,15,20,30],
+                    value: height,
+                    optionsCaption: 'Game Height...'"></select>
+    </labeL><br />
+
+    <label>
+        Game Width
+        <select class="form-control" data-bind="options: [2,3,4,5,6,7,8,9,10,15,20,30],
+                    value: width,
+                    optionsCaption: 'Game Width...'"></select>
+    </label>
+
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" data-bind="checked: curvesOnly"> Curves Pieces Only
+        </label>
+    </div>
+
+    <label>
+        How many second head start
+        <select class="form-control" data-bind="options: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],
+                       value: secondHeadStart,
+                       optionsCaption: 'Head start in seconds...'"></select>
+    </label> <br /><br />
+
+    <input class="btn btn-default btn-md active" data-bind="click: startGame" type="button" value="start game with headstart" /><br /><br />
+
+
+    <div data-bind="visible: board">
+
+        <!-- ko if: timeTillStart() > 0 -->
+            Flow starting in {{ timeTillStart }} {{ timeTillStart() > 1 ? 'seconds' : 'second' }}
+        <!-- /ko -->
+        <!-- ko if: timeTillStart() <= 0 -->
+        <br />
+        <!-- /ko -->
+
+        <!-- if: board -->
+        <!-- ko with: board -->
+
+        <div data-bind="dt-component: { name: 'gameboard-component', vm: $data }"></div>
+
+        <!-- /ko -->
+        <!-- /ko -->
+    </div>
+
+
+</div>

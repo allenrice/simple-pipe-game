@@ -1,0 +1,315 @@
+﻿/* TODO: Add styles for component: gameboard-component */
+.item-in-hand .empty-piece-location:hover {
+    transform: rotate(.25turn);
+}
+
+.item-in-hand .empty-piece-location:hover:after {
+    display: block;
+    cursor: pointer;
+    border: 10px solid black;
+    border-top: none;
+    border-left: none;
+    -webkit-box-sizing: initial !important;
+    box-sizing: initial !important;
+}
+
+.item-in-hand-is-180-deg-pipe .empty-piece-location:hover {
+    transform: rotate(0turn);
+}
+
+.item-in-hand-is-180-deg-pipe .empty-piece-location:hover:after {
+    height: 20px;
+    width: 50px;
+    border-right: none;
+    content: '';
+}
+
+.item-in-hand-is-90-deg-bend .empty-piece-location:hover:after {
+    display: block;
+    height: 20px;
+    width: 20px;
+    border-radius: 0px 0px 25px 0px;
+    content: '';
+}
+
+/*.end-location.N {
+    border-top:2px solid red;
+}
+
+.end-location.E {
+    border-right:2px solid red;
+}
+
+.end-location.S {
+    border-bottom:2px solid red;
+}
+
+.end-location.W {
+    border-left:2px solid red;
+}*/
+
+.start-location:before, .end-location:before {
+    display: block;
+    height: 50px;
+    width: 1px;
+    content: '';
+    border: 1px solid transparent;
+    padding: 1px;
+    margin: 1px;
+    border-spacing: 5px;
+    border-collapse: separate;
+    float: left;
+    -webkit-box-sizing: initial !important;
+    box-sizing: initial !important;
+}
+
+.start-location.empty-piece-location:before, .end-location.empty-piece-location:before {
+    margin: -2px;
+}
+
+.start-location:before {
+    background-color: green;
+}
+
+.end-location:before {
+    background-color: red;
+}
+
+.start-location.N:before, .end-location.N:before,
+.start-location.S:before, .end-location.S:before {
+    height: 1px;
+    width: 50px;
+}
+
+.start-location.E:before, .end-location.E:before {
+    margin-left: 50px;
+}
+
+.start-location.empty-piece-location.E:before, .end-location.empty-piece-location.E:before {
+    margin-left: 47px;
+}
+
+.start-location.S:before, .end-location.S:before {
+    margin-top: 50px;
+}
+
+.start-location.empty-piece-location.S:before, .end-location.empty-piece-location.S:before {
+    margin-top: 47px;
+}
+
+
+/*.start-location.N {
+     border-top:2px solid green;
+}
+
+.start-location.E {
+    border-right:2px solid green;
+}
+
+.start-location.S {
+    border-bottom:2px solid green;
+}
+
+.start-location.W {
+    border-left:2px solid green;
+}*/
+
+.game { 
+    clear: both;
+}
+
+.pipe-game {
+
+    .spilled {
+        background-color: green !important;
+    }
+
+    .board-table {
+        margin: 0px;
+        padding: 0px;
+        border-spacing: 5px;
+        border-collapse: separate;
+
+        .board-column {
+            clear: left;
+        }
+
+        .piece-location {
+            float: left;
+            -webkit-box-sizing: initial !important;
+            box-sizing: initial !important;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .empty-piece-location {
+            float: left;
+            -webkit-box-sizing: initial !important;
+            box-sizing: initial !important;
+            height: 50px;
+            width: 50px;
+            border: 1px solid black;
+            padding: 1px;
+            margin: 1px;
+        }
+
+        .pipe {
+            -webkit-box-sizing: initial !important;
+            box-sizing: initial !important;
+            height: 50px;
+            width: 50px;
+            border: 1px solid black;
+            padding: 1px;
+            margin: 1px;
+        }
+
+        .pipe:after {
+            -webkit-box-sizing: initial !important;
+            box-sizing: initial !important;
+        }
+
+        .pipe:hover,
+        .pipe:hover:after {
+            border-color: #21ADDB;
+        }
+
+        .pipe90deg:after {
+            display: block;
+            height: 20px;
+            width: 20px;
+            top: 0px;
+            left: 0px;
+            border: 10px solid black;
+            border-top: none;
+            border-left: none;
+            border-radius: 0px 0px 25px 0px;
+            content: '';
+        }
+
+        .pipe180deg:after {
+            display: block;
+            height: 20px;
+            width: 50px;
+            top: 0px;
+            left: 0px;
+            border: 10px solid black;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            content: '';
+        }
+
+        
+        @animTime: .1s;
+        @fromTurn: 0deg;
+        @toTurn: 90deg;
+        .rotation0deg {
+        
+            transform: rotate(@toTurn);
+            -webkit-animation: cssanim1 @animTime 1 ease;
+               -moz-animation: cssanim1 @animTime 1 ease;
+                 -o-animation: cssanim1 @animTime 1 ease;
+        }
+
+        @-webkit-keyframes cssanim1 { from { -webkit-transform: rotate(@fromTurn); } to { -webkit-transform: rotate(@toTurn); } }
+           @-moz-keyframes cssanim1 { from {    -moz-transform: rotate(@fromTurn); } to {    -moz-transform: rotate(@toTurn); } }
+             @-o-keyframes cssanim1 { from {      -o-transform: rotate(@fromTurn); } to {      -o-transform: rotate(@toTurn); } }
+
+       
+
+        @fromTurn2: 90deg;
+        @toTurn2: 180deg;
+
+        .rotation270deg { 
+            transform: rotate(@toTurn2);
+            -webkit-animation: cssanim2 @animTime 1 ease;
+               -moz-animation: cssanim2 @animTime 1 ease;
+                 -o-animation: cssanim2 @animTime 1 ease;
+        }
+
+        @-webkit-keyframes cssanim2 { from { -webkit-transform: rotate(@fromTurn2); } to { -webkit-transform: rotate(@toTurn2); } }
+           @-moz-keyframes cssanim2 { from {    -moz-transform: rotate(@fromTurn2); } to {    -moz-transform: rotate(@toTurn2); } }
+             @-o-keyframes cssanim2 { from {      -o-transform: rotate(@fromTurn2); } to {      -o-transform: rotate(@toTurn2); } }
+
+
+        @fromTurn3: 180deg;
+        @toTurn3: 270deg;
+
+        .rotation180deg { 
+            transform: rotate(@toTurn3);
+            -webkit-animation: cssanim3 @animTime 1 ease;
+               -moz-animation: cssanim3 @animTime 1 ease;
+                 -o-animation: cssanim3 @animTime 1 ease;
+        }
+
+        @-webkit-keyframes cssanim3 { from { -webkit-transform: rotate(@fromTurn3); } to { -webkit-transform: rotate(@toTurn3); } }
+           @-moz-keyframes cssanim3 { from {    -moz-transform: rotate(@fromTurn3); } to {    -moz-transform: rotate(@toTurn3); } }
+             @-o-keyframes cssanim3 { from {      -o-transform: rotate(@fromTurn3); } to {      -o-transform: rotate(@toTurn3); } }
+
+
+
+        @fromTurn4: 270deg;
+        @toTurn4: 360deg;
+
+        .rotation90deg { 
+            transform: rotate(@toTurn4);
+            -webkit-animation: cssanim4 @animTime 1 ease;
+               -moz-animation: cssanim4 @animTime 1 ease;
+                 -o-animation: cssanim4 @animTime 1 ease;
+        }
+
+        @-webkit-keyframes cssanim4 { from { -webkit-transform: rotate(@fromTurn4); } to { -webkit-transform: rotate(@toTurn4); } }
+           @-moz-keyframes cssanim4 { from {    -moz-transform: rotate(@fromTurn4); } to {    -moz-transform: rotate(@toTurn4); } }
+             @-o-keyframes cssanim4 { from {      -o-transform: rotate(@fromTurn4); } to {      -o-transform: rotate(@toTurn4); } }
+
+
+        .pipe180deg.rotation0deg {
+            transform: rotate(0deg);
+            -webkit-animation: cssanim4 @animTime 1 ease;
+               -moz-animation: cssanim4 @animTime 1 ease;
+                 -o-animation: cssanim4 @animTime 1 ease;
+        }
+
+        .pipe180deg.rotation90deg {
+            transform: rotate(90deg);
+            -webkit-animation: cssanim1 @animTime 1 ease;
+               -moz-animation: cssanim1 @animTime 1 ease;
+                 -o-animation: cssanim1 @animTime 1 ease;
+        }
+
+        .pipe180deg.rotation180deg {
+            transform: rotate(180deg);
+            -webkit-animation: cssanim2 @animTime 1 ease;
+               -moz-animation: cssanim2 @animTime 1 ease;
+                 -o-animation: cssanim2 @animTime 1 ease;
+        }
+
+        .pipe180deg.rotation270deg {
+            transform: rotate(270deg);
+            -webkit-animation: cssanim3 @animTime 1 ease;
+               -moz-animation: cssanim3 @animTime 1 ease;
+                 -o-animation: cssanim3 @animTime 1 ease;
+        }
+    }
+}
+
+        @-webkit-keyframes cssanim5 { from { background-color:green } to { background-color:white } }
+           @-moz-keyframes cssanim5 { from { background-color:green } to { background-color:white } }
+             @-o-keyframes cssanim5 { from { background-color:green } to { background-color:white } }
+
+        @-webkit-keyframes cssanim6 { from { background-color:red } to { background-color:white } }
+           @-moz-keyframes cssanim6 { from { background-color:red } to { background-color:white } }
+             @-o-keyframes cssanim6 { from { background-color:red } to { background-color:white } }
+
+
+.won .flowed {
+    -webkit-animation: cssanim5 .5s 99 ease !important;
+       -moz-animation: cssanim5 .5s 99 ease !important;
+         -o-animation: cssanim5 .5s 99 ease !important;
+}
+
+.lost .flowed {
+    -webkit-animation: cssanim6 .5s 99 ease !important;
+       -moz-animation: cssanim6 .5s 99 ease !important;
+         -o-animation: cssanim6 .5s 99 ease !important;
+}
